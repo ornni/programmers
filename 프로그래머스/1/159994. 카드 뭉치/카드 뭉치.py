@@ -1,8 +1,5 @@
 def solution(cards1, cards2, goal):
     answer = ""
-    cards1.append(" ")
-    cards2.append(" ")
-
     index1 = 0
     index2 = 0
     A = []
