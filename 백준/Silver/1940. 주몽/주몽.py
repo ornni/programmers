@@ -3,23 +3,21 @@ input = sys.stdin.readline
 
 n = int(input())
 m = int(input())
-number = list(map(int, input().split()))
+A = list(map(int, input().split()))
+index1 = 0
+index2 = n - 1
+total = 0
+answer = 0
+A.sort()
 
-one = 0
-two = n-1
-count = 0
-
-sort_number = sorted(number)
-
-while one < two:
-    sum = sort_number[one] + sort_number[two]
-    if sum == m:
-        count += 1
-        one += 1
-        two -= 1
-    elif sum < m:
-        one += 1
+while index1 < index2:
+    total = A[index1] + A[index2]
+    if total == m:
+        answer += 1
+        index1 += 1
+    elif total < m:
+        index1 += 1
     else:
-        two -= 1
+        index2 -= 1
 
-print(count)
+print(answer)
