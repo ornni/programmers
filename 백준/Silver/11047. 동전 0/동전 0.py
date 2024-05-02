@@ -1,13 +1,18 @@
+import sys
+input = sys.stdin.readline
+
 n, k = map(int, input().split())
 A = []
-count = 0
+answer = 0
 
 for _ in range(n):
     A.append(int(input()))
 
-for i in range(n-1, -1, -1):
-    if A[i] <= k:
-        count += (k // A[i])
-        k = (k % A[i])
+A.sort(reverse = True)
 
-print(count)
+for i in A:
+    if i <= k:
+        answer += k // i
+        k = k % i
+
+print(answer)
