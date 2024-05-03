@@ -1,18 +1,19 @@
 import sys
 input = sys.stdin.readline
 
-def MOD(x, y):
-    a = max(x, y)
-    b = min(x , y)
-    if b == 0:
-        return a
+a, b = map(int, input().split())
+
+def GCD(a, b):
+    x = max(a, b)
+    y = min(a, b)
+    
+    if y == 0:
+        return x
     else:
-        return MOD(b, a % b)
+        return GCD(b, a%b)
 
-n, m = map(int, input().split())
+gcd = GCD(a, b)
 
-answer = MOD(n, m)
-
-while answer > 0:
+for _ in range(gcd):
     print(1, end = '')
-    answer -= 1
+
