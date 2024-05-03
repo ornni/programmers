@@ -1,15 +1,18 @@
 import sys
 input = sys.stdin.readline
 
-def MOD(x, y):
+n = int(input())
+
+def GCD(a, b):
+    x = max(a, b)
+    y = min(a, b)
+    
     if y == 0:
         return x
     else:
-        return MOD(y, x % y)
+        return GCD(b, a%b)
 
-n = int(input())
-
-for i in range(n):
-    x, y = map(int, input().split())
-    answer = x * y / MOD(x, y)
-    print(int(answer))
+for _ in range(n):
+    a, b = map(int, input().split())
+    gcd = GCD(a, b)
+    print(int(a * b / gcd))
