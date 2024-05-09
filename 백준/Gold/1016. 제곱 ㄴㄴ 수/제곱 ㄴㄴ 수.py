@@ -1,22 +1,21 @@
 import sys
 import math
-input = sys.stdin.readline
 
-n, m = map(int, input().split())
-A = [False] * (m - n + 1)
+Min, Max = map(int, input().split())
+check = [False] * (Max - Min + 1)
 
-for i in range(2, int(math.sqrt(m) + 1)):
+for i in range(2, int(math.sqrt(Max) + 1)):
     divisor = i * i
-    index = int(n / divisor)
-    if n % divisor != 0:
-        index += 1
-    for j in range(index, int(m / divisor) + 1):
-        A[int((j * divisor) - n)] = True
-    
+    start = int(Min/divisor)
+    if Min % divisor != 0:
+        start += 1
+    for j in range(start, int(Max/divisor) + 1):
+        check[int(j * divisor) - Min] = True
+
 answer = 0
 
-for i in range(m - n + 1):
-    if not A[i]:
+for i in range(Max - Min + 1):
+    if not check[i]:
         answer += 1
 
 print(answer)
