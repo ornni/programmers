@@ -10,4 +10,3 @@ def solution(n):
         for i in range(3, n+1):
             ap[i] = ap[i-1] + ap[i-2]
         return ap[n] % 1234567
-        
