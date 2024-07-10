@@ -2,15 +2,15 @@ import sys
 input = sys.stdin.readline
 
 n, m = map(int, input().split())
-number = list(map(int, input().split()))
+a = list(map(int, input().split()))
 
 sum_list = [0]
-cumul = 0
+tmp = 0
 
-for i in range(n):
-    cumul += number[i]
-    sum_list.append(cumul)
-    
+for i in a:
+    tmp += i
+    sum_list.append(tmp)
+
 for i in range(m):
-    start, end = map(int, input().split())
-    print(sum_list[end] - sum_list[start-1])
+    s, e = map(int, input().split())
+    print(sum_list[e] - sum_list[s-1])
