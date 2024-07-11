@@ -7,19 +7,19 @@ tree = [[] for _ in range(n+1)]
 visited = [False] * (n+1)
 answer = [0] * (n+1)
 
-for _ in range(1, n):
+for _ in range(n-1):
     s, e = map(int, input().split())
     tree[s].append(e)
     tree[e].append(s)
 
-def DFS(x):
+def dfs(x):
     visited[x] = True
-    for i in tree[x]:
-        if not visited[i]:
-            answer[i] = x
-            DFS(i)
+    for y in tree[x]:
+        if visited[y] == False:
+            answer[y] = x
+            dfs(y)
 
-DFS(1)
+dfs(1)
 
 for i in range(2, n+1):
     print(answer[i])
